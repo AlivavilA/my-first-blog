@@ -1,38 +1,14 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Ola's blog</title>
-    </head>
-<body>
-    <header>
-        <h1<a href="/">Portland19 Blog</h1>
-    </header>
-    <article>
-        <time>published: 18.07.2025, 5:25</time>
-        <h2><a href="">Mi primer Blog</a></h2>
-        <p>“A concept is a brick. It can be used to build a courthouse of reason. Or it can be thrown through the window.”
-― Gilles Deleuze, A Thousand Plateaus: Capitalism and Schizophrenia</p>
-    </article>
-    <article>
-        <time>published: 18.07.2025, 5:25</time>
-        <h2><a href="">Mi Segundo Blog</a></h2>
-        <p>XXVI.
-            APODOGMA
-            El
-            Respeto
-            Al
-            Complejo
-            Ajeno
-            Es
-            La
-            Paz</p>  
-    </article>
+{% extends 'blog/base.html' %}
+
+{% block content %}
     {% for post in posts %}
-        <article>
-            <time>published: {{ post.published_date }}</time>
-            <h2><a href="">{{ post.title }}</a></h2>
+        <article class="post">
+            <time class="date">
+                {{ post.published_date }}
+            </time>
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
             <p>{{ post.text|linebreaksbr }}</p>
         </article>
     {% endfor %}
-</body>
-</html>
+{% endblock %}
+
