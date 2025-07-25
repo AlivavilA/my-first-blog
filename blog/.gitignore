@@ -12,7 +12,9 @@ venv/
 db.sqlite3
 
 # Static folder at project root
-/static/
+/static/*
+!/static/css/
+!/static/css/**
 
 # macOS
 ._*
